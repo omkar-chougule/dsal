@@ -1,0 +1,121 @@
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+using namespace std;
+
+void create()
+{
+    ofstream f("db.txt", ios::app);
+    string rn, name, div, add;
+
+    cout << "roll no.";
+    cin >> rn;
+    cout << "name";
+    cin >> name;
+    cout << "div";
+    cin >> div;
+    cout << "add";
+    cin >> add;
+
+    f << rn << setw(20) << name << setw(20) << div << setw(20) << add << endl;
+    f.close();
+}
+
+void display()
+{
+    ifstream f("db.txt");
+    string line;
+    cout << "diplaying data" << endl;
+    while (getline(f, line))
+    {
+        cout << line << endl;
+    }
+    f.close();
+    return;
+}
+
+void serach()
+{
+    ifstream f("db.txt");
+    string rn;
+    string line;
+    bool found;
+    cout << "enter student rool no." << endl;
+    cin >> rn;
+    while (getline(f, line))
+    {
+        if (line.find(rn) != string::npos)
+        {
+            cout << "student details" << endl;
+            cout << line << endl;
+            found = true;
+        }
+    }
+    f.close();
+    if (found == false)
+    {
+        cout << "student detal not present" << endl;
+    }
+}
+
+void delet()
+{
+    ifstream f("db.txt");
+    string rn;
+    string line, filedata;
+    bool found;
+    cout << "enter student rool bo." << endl;
+    cin >> rn;
+    while (getline(f, line))
+    {
+        if (line.find(rn) == string::npos)
+        {
+            filedata += line;
+
+            filedata += "\n";
+            found = true;
+        }
+    }
+    f.close();
+    if (found == false)
+    {
+        cout << "student detal not present" << endl;
+        return;
+    }
+    ofstream f1("db.txt", ios::out);
+    f1 << filedata;
+    f1.close();
+}
+
+int main()
+{
+    ofstream f("db.txt", ios::out);
+    f << "rn" << setw(20) << "name" << setw(20) << "div" << setw(20) << "add" << endl;
+    f.close();
+    int ch;
+    do
+    {
+
+        cout << "enter choice \n1. add student:\n2. search:\n3. display:\n4. delete:\n5. exit:\n";
+        cin >> ch;
+        switch (ch)
+        {
+        case 1:
+            create();
+            break;
+        case 2:
+            serach();
+            break;
+        case 3:
+            display();
+            break;
+        case 4:
+            delet();
+            break;
+        case 5:
+            break;
+        default:
+            break;
+        }
+    } while (ch != 5);
+}
