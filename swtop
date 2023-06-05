@@ -1,0 +1,131 @@
+def accept():
+    s1 = []
+    n = int(input("enter no. of element u want in set:"))
+    for i in range(n):
+        m = int(input("enter element:"))
+        s1.append(m)
+    return s1
+
+
+def search(s, n):
+    for i in range(n):
+        if n in s:
+            print("element ", n, " is presnt ")
+            return i
+    print("element not present")
+    return -1
+
+
+def remove(s, n):
+    s1 = search(s, n)
+    if (s1 == -1):
+        return -1
+
+    s.remove(n)
+    return s
+
+
+def display(s):
+    print(s)
+
+
+def size(s):
+    return len(s)
+
+
+def intersection(s1, s2):
+    s3 = []
+    for i in s1:
+        for j in s2:
+            if (i == j):
+                s3.append(i)
+    return s3
+
+
+def union(s1, s2):
+    s3 = intersection(s1, s2)
+    s4 = s1+s2
+    for i in s3:
+        s4.remove(i)
+    return s4
+
+
+def diff(s1, s2):
+    s3 = intersection(s1, s2)
+    s4 = s1
+    for i in s3:
+        s4.remove(i)
+    return s4
+
+
+def subset(s1, s2):
+    for i in s2:
+        for j in s1:
+            if (i != j):
+                print(s2, "\nis not a subset of\n", s1)
+                return
+    print(s2, "\nis a subset of\n", s1)
+    return
+
+
+def op():
+
+    c = int(input(print(
+        "enter ur choice\n1. intersection.\n2. union.\n3.difference of sets.\n4.subset.\n5.exit")))
+    print("define set 1:")
+    s1 = accept()
+    print("define set 2:")
+    s2 = accept()
+    ch = 0
+    while (ch == 0):
+        if (c == 1):
+            print("intersection of sets:\n", s1, "\n", s2, " is")
+            s3 = intersection(s1, s2)
+            display(s3)
+            op()
+        elif (c == 2):
+            print("unioin of sets:\n", s1, "\n", s2, " is")
+            s3 = union(s1, s2)
+            display(s3)
+            op()
+        elif (c == 3):
+            print("difference of set (s1-s2) is:\n")
+            s3 = diff(s1, s2)
+            display(s3)
+            print("difference of set (s2-s1) is:\n")
+            s4 = diff(s2, s1)
+            display(s4)
+            op()
+        elif (c == 4):
+            print("sets:\n", s1, "\n", s2)
+            subset(s1, s2)
+            subset(s2, s1)
+            op()
+        else:
+            ch = 1
+
+
+while True:
+    print("\n---------------------------MENU------------------------------")
+    print("\n\n \t [1] Accept elements \n\t [2] Display elements \n\t [3] Remove element \n\t [4] Search element \n\t [5] Find Size\n\t [6] Perform Set Operations")
+    ch = int(input("\nEnter your choice : "))
+    if ch == 1:
+        s1 = accept()
+        print("\nSet is : ", s1)
+    elif ch == 2:
+        display(s1)
+    elif ch == 3:
+        n = int(input("\nEnter the number to remove : "))
+        s1 = remove(s1, n)
+        print("\nSet is : ", s1)
+    elif ch == 4:
+        n = int(input("\nEnter the number to search : "))
+        i = search(s1, n)
+        if (i != -1):
+            print(f"\n {n} is present in set ")
+        print("\nSet is : ", s1)
+    elif ch == 5:
+        size = size(s1)
+        print(f"\nSize of the set is : {size}")
+    elif ch == 6:
+        op()
