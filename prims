@@ -95,3 +95,65 @@ int main()
     t.minimum();
     return 0;
 }
+/*PS C:\dsal> cd "c:\dsal\" ; if ($?) { g++ tp.cpp -o tp } ; if ($?) { .\tp }
+
+Enter the no. of nodes: 6
+
+Enter the no. of edges: 6
+
+______________________________________
+Enter the edges in pair (u,v): 1
+2
+
+Enter the phone company charges for this connection:  1
+
+______________________________________
+Enter the edges in pair (u,v): 1
+3
+
+Enter the phone company charges for this connection:  3
+
+______________________________________
+Enter the edges in pair (u,v): 3
+4
+
+Enter the phone company charges for this connection:  5
+
+______________________________________
+Enter the edges in pair (u,v): 2
+4
+
+Enter the phone company charges for this connection:  2
+
+______________________________________
+Enter the edges in pair (u,v): 4
+5
+
+Enter the phone company charges for this connection:  3
+
+______________________________________
+Enter the edges in pair (u,v): 3
+6
+
+Enter the phone company charges for this connection:  4
+
+Adjacency matrix:
+  999       1       3     999     999     999
+    1     999     999       2     999     999
+    3     999     999       5     999       4
+  999       2       5     999       3     999
+  999     999     999       3     999     999
+  999     999       4     999     999     999   
+
+Minimum cost connection is 1 -> 2 with charge: 1
+
+Minimum cost connection is 2 -> 4 with charge: 2
+
+Minimum cost connection is 1 -> 3 with charge: 3
+
+Minimum cost connection is 4 -> 5 with charge: 3
+
+Minimum cost connection is 3 -> 6 with charge: 4
+
+The minimum total cost of connections of all branches is: 13
+PS C:\dsal> */
