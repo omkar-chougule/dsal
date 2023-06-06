@@ -135,3 +135,17 @@ int main()
 
     return 0;
 }
+/*PS C:\dsal> cd "c:\dsal\" ; if ($?) { g++ tp.cpp -o tp } ; if ($?) { .\tp }
+Enter the prefix Expression:+*ab*cd
+
+postorder expression 
+ab*cd*+
+
+Deleting the node'a';
+Deleting the node'b';
+Deleting the node'*';
+Deleting the node'c';
+Deleting the node'd';
+Deleting the node'*';
+Deleting the node'+';
+PS C:\dsal>*/
