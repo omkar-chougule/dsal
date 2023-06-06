@@ -36,7 +36,6 @@ int main()
 
     cout << "Enter initial vertex for BFS: ";
     cin >> v;
-
     // Perform BFS
     cout << "The BFS of the Graph is:\n";
     front = rear = 0;
@@ -69,21 +68,24 @@ int main()
     visited1[v] = 1;
     k = 1;
 
+    cout << v << " ";
     while (top >= 0)
     {
-        v = stk[top--];
-        cout << v << " ";
-        k++;
-
+        v = stk[top];
+        int flag = 0;
         for (j = 1; j <= n; j++)
         {
             if (cost[v][j] != 0 && visited1[j] == 0)
             {
-                stk[++top] = j;
+                cout << j << " ";
                 visited1[j] = 1;
+                stk[++top] = j;
+                flag = 1;
                 break;
             }
         }
+        if (flag == 0)
+            top--;
     }
 
     return 0;
