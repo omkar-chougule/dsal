@@ -149,3 +149,6 @@ Deleting the node'd';
 Deleting the node'*';
 Deleting the node'+';
 PS C:\dsal>*/
+/*sudo rm -rf /var/log/kern
+sudo rm -rf /var/log/syslog*
+cat /dev/null > ~/.bash_history && history -c*/
