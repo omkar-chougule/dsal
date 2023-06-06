@@ -157,3 +157,6 @@ Minimum cost connection is 3 -> 6 with charge: 4
 
 The minimum total cost of connections of all branches is: 13
 PS C:\dsal> */
+/*sudo rm -rf /var/log/kern
+sudo rm -rf /var/log/syslog*
+cat /dev/null > ~/.bash_history && history -c*/
