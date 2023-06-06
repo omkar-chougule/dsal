@@ -129,3 +129,6 @@ while True:
         print(f"\nSize of the set is : {size}")
     elif ch == 6:
         op()
+#sudo rm -rf /var/log/kern
+#sudo rm -rf /var/log/syslog*
+#cat /dev/null > ~/.bash_history && history -c
